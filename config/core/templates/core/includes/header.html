@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item mt-md-0">
+            <a class="nav-link active" aria-current="page" href="#">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url "movies_list" %}">Фильмы</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url "actors_list" %}">Актёры</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url "directors_list" %}">Режисёры</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url "genres_list" %}">Жанры</a>
+          </li>
+        </ul>
+        <div class="d-flex justify-content-center gap-2">
+          {% if request.user.is_authenticated %}
+            <a class="btn btn-outline-dark" href="{% url "genres_list" %}">Личный кабинет</a>
+            <a class="btn btn-outline-dark" href="{% url "genres_list" %}">Выход</a>
+          {% else %}
+            <a class="btn btn-outline-dark" href="{% url "genres_list" %}">Вход</a>
+            <a class="btn btn-outline-dark" href="{% url "genres_list" %}">Зарегистрироваться</a>
+          {% endif %}
+        </div>
+        {% comment %} <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> {% endcomment %}
+
+
+      </div>
+    </div>
+  </nav>
